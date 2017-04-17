@@ -1,0 +1,148 @@
+% TeX encoding = utf8
+% TeX spellcheck = pl_PL 
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\author{Kamil Foryszewski}
+\title{Modelowanie i identyfkacja - projekt I, zadanie 9}
+\frenchspacing
+
+\newgeometry{tmargin=2cm, bmargin=2cm, lmargin=2cm, rmargin=2cm}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\lstset{language=Matlab,%
+    basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},%
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,
+    numbers=right,%
+    numberstyle={ \color{black}},% size of the numbers
+    numbersep=5pt, % this defines how far the numbers are from the text
+    emph=[1]{for,endfor,endwhile,endfunction,endif,break},emphstyle=[1]\color{blue}, %some words to emphasise
+    emph=[2]{,.}, emphstyle=[2]\color{yellow},%
+}
+
+\maketitle
+\tableofcontents
+
+\section{Dynamiczny model ciągły}
+\subsection{Równanie modelu w przestrzeni stanu}
+Obiekt dynamiczny opisany jest modelem ciągłym w przestrzeni stanu: 
+\\
+
+$\dot{x}_1 = -\frac{T_{1}-T_{2}}{T_{1}T_{2}}x_{1}(t) +x_{2}(t)$
+\\
+
+$\dot{x}_2 = -\frac{1}{T_{1}T_{2}}x_{1}(t) + \frac{K}{T_{1}T_{2}}(\alpha_{1}u(t) + \alpha_{2}u^2(t) + \alpha_{3}u^3(t) + \alpha_{4}u^4(t))$
+\\
+
+$y(t) = x_{1}(t)$
+\\
+\\
+Gdzie : \\
+
+$K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45,$
+\\
+
+Sygnał sterujący spałnia warunek $-1 \leq u \leq 1$
+\\
+\\
+Po podstawieniu: 
+\\
+
+$\dot{x}_1 = -0.285714286x_{1}(t) +x_{2}(t)$
+\\
+
+$\dot{x}_2 = - 0.020408163x_{1}(t) - 0.021326531u(t) - 0.005612245u^2(t) - 0.106632653u^3(t) - 0.050510204u^4(t)$
+\\
+
+$y(t) = x_{1}(t)$
+\\
+\\
+\subsection{Reprezentacja graficzna dynamicznego modelu Ciągłego}
+tutaj dodaj zrzut z symulinka
+
+\section{Dynamiczny model dyskretny}
+
+\subsection{Wyprowadzenie równania dynamicznego modelu dyskretnego}
+
+Korzystając z metody aproksymacji wstecznej Eulera: 
+\\
+
+$\frac{x_1(k)- x_1(k-1)}{T_p} = -0.285714286x_1(k-1) +x_2(k-1)$
+\\
+
+$\frac{x_2(k)- x_2(k-1)}{T_p} = - 0.020408163x_1(k-1) - 0.021326531u(k-1) - 0.005612245u^2(k-1)\\
+	\indent	- 0.106632653u^3(k-1) - 0.050510204u^4(k-1)$
+\\
+
+$y(k) = x_1(k)$
+\\
+\\
+Po uproszczeniu: 
+\\
+
+$x_1(k) =(-0.285714286T_p+1)x_1(k-1)+T_px_2(k-1) $
+\\
+
+$x_2(k) = - 0.020408163T_px_1(k-1) + x_2(k-1) + T_p(-0.021326531u(k-1)-0.005612245u^2(k-1)\\
+	\indent	- 0.106632653u^3(k-1)-0.050510204u^4(k-1))$
+\\
+
+$y(k) = x_1(k)$
+\\
+\\
+W zapisie symbolicznym:
+\\
+
+$x_1(k) =(1-\frac{(T_1 + T_2)T_p}{T_1T_2})x_1(k-1)+T_px_2(k-1) $
+\\
+
+$x_2(k) = - \frac{T_p}{T_1T_2}x_1(k-1) + x_2(k-1) + T_p(\alpha_1u(k-1)+\alpha_2u^2(k-1)\\
+	\indent	+ \alpha_3u^3(k-1)+\alpha_4u^4(k-1))$
+\\
+
+$y(k) = x_1(k)$
+\\
+\\
+Gdzie : \\
+
+$K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45, T_p$ - krok czasowy
+\\
+
+
+\subsection{Reprezentacja graficzna dynamicznego modelu dyskretnego}
+
+tutaj dodaj zrzut z symulinka
+
+\section{Symulacje dynamicznego modelu ciągłego i dyskretnego}
+
+
+
+\section{Wnioski końcowe}
+
+
+\end{document}
