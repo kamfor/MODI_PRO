@@ -114,6 +114,16 @@ for k = 1:4
     
 end
 
+%symulacje modelu zlinearyzowanego 
+
+for k = 1:4
+    for l=1:4
+     
+    end
+end
+
+
+
 
 
 
