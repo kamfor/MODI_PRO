@@ -5,6 +5,7 @@ a1 = -0.19;
 a2 = -0.05; 
 a3 = -0.95; 
 a4 = -0.45;
+l=1;
 
 Tp = 0.1;
 simOutC = sim('dynamiczny_model_ciagly'); 
@@ -108,17 +109,35 @@ for k = 1:4
     'Location', 'NorthEast');
     title('Charakterystyka statyczna modelu');
     xlabel('u')
-    name =  ['punkt_linearyzacji:' num2str(us(k))];
+    name =  ['punkt linearyzacji:' num2str(us(k))];
     title(name);
+    name =  ['6_' num2str(us(k)) '.svg'];
     saveas(h,name,'svg');   
     
 end
 
 %symulacje modelu zlinearyzowanego 
 
-for k = 1:4
-    for l=1:4
-     
+Tp = 1; 
+u1 = [1; 0.5; 0.6; 0.25]; 
+for k = 1:4 %linearyzacja
+    
+    for l=1:4 %sterowanie
+        
+        simOutC = sim('dynamiczny_model_dyskretny_zlinearyzowany'); 
+        simOutD = sim('dynamiczny_model_dyskretny'); 
+
+        h = figure;
+        set(h,'units','points','position',[x0,y0,width,height]); 
+        stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
+        hold on; 
+        stairs(y_d_lin.time,y_d_lin.signals.values,'b','LineWidth', 2);
+        legend({'Model dynamiczny dyskretny', 'Model dynamiczny dyskretny zlinearyzowany'}, ...
+            'Location', 'NorthEast');
+        name =  ['model dynamiczny i zlinearyzowany skok:' num2str(u1(l)) ' punkt linearyzacji:' num2str(us(k))];
+        title(name);
+        name =  ['9_' num2str(u1(l)) '_' num2str(us(k)) '.svg'];
+        saveas(h,name,'svg');
     end
 end
 

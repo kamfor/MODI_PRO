@@ -213,7 +213,8 @@ $\alpha_2u^2(k-1)+ \alpha_3u^3(k-1)+\alpha_4u^4(k-1) \approx \alpha_2\overline{u
 $x_1(k) =(1-\frac{(T_1 + T_2)T_p}{T_1T_2})x_1(k-1)+T_px_2(k-1) $
 \\
 
-$x_2(k) = - \frac{T_p}{T_1T_2}x_1(k-1) + x_2(k-1) + T_p(\alpha_1u(k-1)+\alpha_2(2\overline{u}u - \overline{u}^2)+ \alpha_3(3\overline{u}^2u-2\overline{u}^3) + \alpha_4(4\overline{u}^3u - 3\overline{u}^4))$
+$x_2(k) = - \frac{T_p}{T_1T_2}x_1(k-1) + x_2(k-1) + T_p(\alpha_1u(k-1)+\alpha_2(2\overline{u}u(k-1) - \overline{u}^2)+
+\\ \indent \alpha_3(3\overline{u}^2u(k-1)-2\overline{u}^3) + \alpha_4(4\overline{u}^3u(k-1) - 3\overline{u}^4))$
 \\
 
 $y(k) = x_1(k)$\\
@@ -227,6 +228,48 @@ $K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95
 tutaj rysunek z symulinka
 
 \section{Symulacja dynamicznego modelu dyskretnego}
+Tutaj 16 rysuneczków najlepiej żeby były obok siebie w jakimś subfigure
+
+\section{Transmitancja zlinearyzowanego dynamiczego modelu ciągłego}
+Zlinearyzowany dynamiczny model ciągły: 
+\\
+
+$\dot{x}_1 = -\frac{T_{1}-T_{2}}{T_{1}T_{2}}x_{1}(t) +x_{2}(t)$
+\\
+
+$\dot{x}_2 = -\frac{1}{T_{1}T_{2}}x_{1}(t) + \frac{K}{T_{1}T_{2}}(\alpha_1u(t)+\alpha_2(2\overline{u}u(t) - \overline{u}^2)+ \alpha_3(3\overline{u}^2u(t)-2\overline{u}^3) + \alpha_4(4\overline{u}^3u(t) - 3\overline{u}^4))$
+\\
+
+$y(t) = x_{1}(t)$
+\\
+\\
+
+Po opuszczeniu składowych stałych otrzymyjemy: 
+\\
+
+$\dot{x}_1 = -\frac{T_{1}-T_{2}}{T_{1}T_{2}}x_{1}(t) +x_{2}(t)$
+\\
+
+$\dot{x}_2 = -\frac{1}{T_{1}T_{2}}x_{1}(t) + \frac{K}{T_{1}T_{2}}u(t)(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)$
+\\
+
+$y(t) = x_{1}(t)$
+\\
+\\
+
+Transmitancję obliczymy ze wzoru: 
+
+Poszczególne macierze wynoszą: 
+
+Korzystając z obliczeń symbolicznych pakietu matlab otrzymujemy: 
+
+
+
+
+Gdzie : \\
+
+$K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45,$
+\\
 
 
 

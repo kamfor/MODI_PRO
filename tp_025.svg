@@ -207,7 +207,7 @@
     ><text x="-40.5" xml:space="preserve" y="-4" style="stroke:none;"
       >Tp = 0.25</text
     ></g
-    ><g style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:blue; stroke-width:0.6667;"
+    ><g style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:blue; stroke-width:2.6667;"
     ><path d="M175 72 L185.41 72 L185.41 72 L185.41 72 L206.23 95.883 L227.05 151.5165 L247.87 221.6439 L268.69 295.6251 L289.51 367.2132 L310.33 433.0284 L331.15 491.5184 L351.97 542.2594 L372.79 585.4903 L393.61 621.8101 L414.43 651.9838 L435.25 676.8231 L456.07 697.1157 L476.89 713.5875 L497.71 726.8842 L518.53 737.5666 L539.35 746.1129 L560.17 752.925 L580.99 758.3371 L601.81 762.6243 L622.63 766.0114 L643.45 768.681 L664.27 770.7807 L685.09 772.4286 L705.91 773.7199 L726.73 774.7299 L747.55 775.5186 L768.37 776.1337 L789.19 776.6127 L810.01 776.9854 L830.83 777.2749 L851.65 777.4996 L872.47 777.6739 L893.29 777.8088 L914.11 777.9133 L934.93 777.9941 L955.75 778.0565 L976.57 778.1047 L997.39 778.1418 L1018.21 778.1705 L1039.03 778.1926 L1059.85 778.2096 L1080.67 778.2227 L1101.49 778.2327 L1122.3101 778.2405 L1143.13 778.2464 L1163.95 778.251 L1184.77 778.2545 L1205.59 778.2572 L1216 778.2582" style="fill:none; fill-rule:evenodd;"
       /><path d="M175 72 L195.82 72 L195.82 72 L216.64 72 L216.64 73.316 L237.46 73.316 L237.46 75.8539 L258.28 75.8539 L258.28 79.5248 L279.1 79.5248 L279.1 84.2446 L299.92 84.2446 L299.92 89.9336 L320.74 89.9336 L320.74 96.5165 L341.56 96.5165 L341.56 103.9224 L362.38 103.9224 L362.38 112.084 L383.2 112.084 L383.2 120.9378 L404.02 120.9378 L404.02 130.424 L424.84 130.424 L424.84 140.4862 L445.66 140.4862 L445.66 151.0711 L466.48 151.0711 L466.48 162.1286 L487.3 162.1286 L487.3 173.6113 L508.12 173.6113 L508.12 185.4748 L528.94 185.4748 L528.94 197.6773 L549.76 197.6773 L549.76 210.1794 L570.58 210.1794 L570.58 222.9442 L591.4 222.9442 L591.4 235.9369 L612.22 235.9369 L612.22 249.125 L633.04 249.125 L633.04 262.4779 L653.86 262.4779 L653.86 275.9671 L674.68 275.9671 L674.68 289.5658 L695.5 289.5658 L695.5 303.2489 L716.32 303.2489 L716.32 316.9931 L737.14 316.9931 L737.14 330.7766 L757.96 330.7766 L757.96 344.5791 L778.78 344.5791 L778.78 358.3815 L799.6 358.3815 L799.6 372.1663 L820.42 372.1663 L820.42 385.9172 L841.24 385.9172 L841.24 399.619 L862.06 399.619 L862.06 413.2576 L882.88 413.2576 L882.88 426.8201 L903.7 426.8201 L903.7 440.2945 L924.52 440.2945 L924.52 453.6699 L945.34 453.6699 L945.34 466.9361 L966.16 466.9361 L966.16 480.0838 L986.98 480.0838 L986.98 493.1046 L1007.8 493.1046 L1007.8 505.9908 L1028.62 505.9908 L1028.62 518.7354 L1049.4399 518.7354 L1049.4399 531.3321 L1070.26 531.3321 L1070.26 543.7751 L1091.08 543.7751 L1091.08 556.0595 L1111.9 556.0595 L1111.9 568.1806 L1132.72 568.1806 L1132.72 580.1344 L1153.54 580.1344 L1153.54 591.9175 L1174.36 591.9175 L1174.36 603.5267 L1195.1801 603.5267 L1195.1801 614.9596 L1216 614.9596 L1216 626.2137" style="fill:none; fill-rule:evenodd; stroke-linejoin:miter; stroke:red;"
     /></g
@@ -218,16 +218,18 @@
     ><text x="0" xml:space="preserve" y="4.5" style="stroke:none;"
       >Model dynamiczny ciągły</text
     ></g
-    ><g style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:blue; stroke-width:0.6667;"
+    ><g style="stroke-linecap:butt; fill:blue; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:blue; stroke-width:2.6667;"
     ><line y2="94.6377" style="fill:none;" x1="990" x2="1020" y1="94.6377"
     /></g
     ><g transform="translate(1023,110.3623)" style="text-rendering:geometricPrecision; font-family:'SansSerif'; color-interpolation:linearRGB; color-rendering:optimizeQuality; image-rendering:optimizeQuality;"
     ><text x="0" xml:space="preserve" y="4.5" style="stroke:none;"
       >Model dynamiczny dyskretny</text
     ></g
-    ><g style="stroke-linecap:butt; fill:red; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:red; stroke-width:0.6667;"
+    ><g style="stroke-linecap:butt; fill:red; text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; stroke-linejoin:round; color-interpolation:linearRGB; stroke:red; stroke-width:2.6667;"
     ><line y2="110.3623" style="fill:none;" x1="990" x2="1020" y1="110.3623"
-      /><path d="M986 120 L986 85 L1203 85 L1203 120 Z" style="fill:none; fill-rule:evenodd; stroke-linejoin:miter; stroke:rgb(38,38,38);"
+    /></g
+    ><g style="stroke-linecap:butt; fill:rgb(38,38,38); text-rendering:geometricPrecision; color-rendering:optimizeQuality; image-rendering:optimizeQuality; color-interpolation:linearRGB; stroke:rgb(38,38,38); stroke-width:0.6667;"
+    ><path d="M986 120 L986 85 L1203 85 L1203 120 Z" style="fill:none; fill-rule:evenodd;"
     /></g
   ></g
 ></svg
