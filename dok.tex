@@ -257,19 +257,49 @@ $y(t) = x_{1}(t)$
 \\
 \\
 
-Transmitancję obliczymy ze wzoru: 
+\noindent Transmitancję obliczymy ze wzoru: 
 
-Poszczególne macierze wynoszą: 
+$$G(s) = C(sI-A)^{-1}B + D$$
 
-Korzystając z obliczeń symbolicznych pakietu matlab otrzymujemy: 
+\noindent Poszczególne macierze wynoszą: \\
 
+$ A= \left[
+        \begin{array}{cc}
+         -\frac{T_1+T_2}{T_1T_2} & 1\\
+         -\frac{1}{T_1T_2} & 0
+         \end{array}
+      \right]
+      \qquad $
+$ B= \left[
+        \begin{array}{c}
+         0\\
+         \frac{K}{T_{1}T_{2}}(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)
+         \end{array}
+      \right]
+      \qquad $
+$ C= \left[
+        \begin{array}{cc}
+         1& 0\\
+         \end{array}
+      \right]
+      \qquad $
+$$D=0$$
 
+\noindent Korzystając z obliczeń symbolicznych pakietu matlab otrzymujemy: 
+$$G(s) = \frac{-K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)}{T_1T_2s^2 + (T_1+T_2)s +1}$$
 
+\noindent Gdzie : \\
 
-Gdzie : \\
-
-$K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45,$
+$K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45,\overline{u}$ - punkt linearyzacji 
 \\
+
+\section{Wzmocnienie statyczne transmitancji}
+$$K_{stat} = \lim_{s \rightarrow 0} G(s) = -K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)$$
+\subsection{Wykres wzmocnienia statycznego w zależności od punktu linearyzacji}
+tutaj wykresik piękny
+
+\section{Sprawdzenie wzmocnienia dla modelu ststycznego i dynamicznego}
+Dywagacje 
 
 
 

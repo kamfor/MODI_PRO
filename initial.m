@@ -141,6 +141,17 @@ for k = 1:4 %linearyzacja
     end
 end
 
+%wzmocnienie statyczne
+u  = -1: .1 : 1;
+y1 = K*(a1*u+a2*u.^2+a3*u.^3+a4*u.^4); 
+h = figure;
+set(h,'units','points','position',[x0,y0,width,height]); 
+plot(u, y1, 'r','LineWidth', 2)
+grid on
+title('Wzmocnienie Statyczne transmitancji');
+xlabel('us')
+ylabel('y')
+saveas(h,'kststtrasmit','svg');
 
 
 
