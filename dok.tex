@@ -82,8 +82,13 @@ $\dot{x}_2 = - 0.020408163x_{1}(t) - 0.021326531u(t) - 0.005612245u^2(t) - 0.106
 $y(t) = x_{1}(t)$
 \\
 \\
-\subsection{Reprezentacja graficzna dynamicznego modelu Ciągłego}
-tutaj dodaj zrzut z symulinka
+\subsection{Reprezentacja graficzna dynamicznego modelu ciągłego}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.28]{dynamiczny_model_ciagly.png}
+\caption{Reprezentacja graficzna dynamicznego modelu ciągłego }
+\end{figure}
+
 
 \section{Dynamiczny model dyskretny}
 
@@ -136,22 +141,43 @@ $K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95
 
 \subsection{Reprezentacja graficzna dynamicznego modelu dyskretnego}
 
-tutaj dodaj zrzut z symulinka
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.28]{dynamiczny_model_dyskretny.png}
+\caption{Reprezentacja graficzna dynamicznego modelu dyskretnego}
+\end{figure}
 
 \section{Symulacje dynamicznego modelu ciągłego i dyskretnego}
-\subsection{$T_p = 0.$}
-
+\subsection{$T_p = 0.1$}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{tp_01.png}
+\end{figure}
 \subsection{$T_p = 0.25$}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{tp_025.png}
+\end{figure}
 
 \subsection{$T_p = 0.5$}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{tp_05.png}
+\end{figure}
 
 \subsection{$T_p = 1$}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{tp_1.png}
+\end{figure}
 
 \subsection{$T_p = 2$}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{tp_2.png}
+\end{figure}
  
-\subsection{Wnioski}
-
-\section{Charakterystyka statyczna midelu ciągłego}
+\section{Charakterystyka statyczna modelu ciągłego}
 \subsection{Wyprowadzenie}
 
 
@@ -167,9 +193,14 @@ Gdzie : \\
 
 $K  = 5.5,\alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95, \alpha_4 = -0.45$
 \subsection{Wykres}
-tutaj wykres chcrakterystyki statycznej
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{statyczna.png}
+\caption{Wykres charakterystyki statycznej modelu ciągłego}
+\end{figure}
 
-\section{Charakterystyka statyczna zlinerayzowana}
+
+\section{Charakterystyka statyczna zlinearyzowana}
 
 $\indent \overline{u}$ - punkt linearyzacji 
 \\
@@ -180,8 +211,23 @@ $y_{stat} = K(\alpha_1\overline{u} + \alpha_2\overline{u}^2 + \alpha_3\overline{
 
 $y_{stat} = K(\alpha_1u + \alpha_2(2\overline{u}u - \overline{u}^2)+ \alpha_3(3\overline{u}^2u-2\overline{u}^3) + \alpha_4(4\overline{u}^3u - 3\overline{u}^4))$
 
-\section{Wykresy zlinearyzowanej charakterystyki ststycznej}
-tutaj grafiki :) 
+\section{Wykresy zlinearyzowanej charakterystyki statycznej}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{6_-0,25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{6_0,25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{6_0,6.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{6_0,8.png}
+\end{figure}
 
 \section{Dynamiczny dyskretny model zlinearyzowany}
 Dynamiczny model dyskretny opisany jest równianiami:
@@ -225,12 +271,84 @@ $K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95
 \\
 
 \section{Reprezentacja graficzna zlinearyzowanego dynamicznego modelu dyskretnego}\
-tutaj rysunek z symulinka
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{dynamiczny_model_dyskretny_zlinearyzowany.png}
+\caption{Reprezentacja graficzna dynamicznego modelu dyskretnego zlinearyzowanego }
+\end{figure}
 
 \section{Symulacja dynamicznego modelu dyskretnego}
-Tutaj 16 rysuneczków najlepiej żeby były obok siebie w jakimś subfigure
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{925m25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{92525.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{9256.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{9258.png}
+\end{figure}
 
-\section{Transmitancja zlinearyzowanego dynamiczego modelu ciągłego}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{95m25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{9525.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{956.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{958.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{96m25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{9625.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{966.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{968.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{91m25.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{9125.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{916.png}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{918.png}
+\end{figure}
+
+
+
+\section{Transmitancja zlinearyzowanego dynamicznego modelu ciągłego}
 Zlinearyzowany dynamiczny model ciągły: 
 \\
 
@@ -244,7 +362,7 @@ $y(t) = x_{1}(t)$
 \\
 \\
 
-Po opuszczeniu składowych stałych otrzymyjemy: 
+\noindent Po opuszczeniu składowych stałych otrzymyjemy: 
 \\
 
 $\dot{x}_1 = -\frac{T_{1}-T_{2}}{T_{1}T_{2}}x_{1}(t) +x_{2}(t)$
@@ -286,7 +404,7 @@ $ C= \left[
 $$D=0$$
 
 \noindent Korzystając z obliczeń symbolicznych pakietu matlab otrzymujemy: 
-$$G(s) = \frac{-K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)}{T_1T_2s^2 + (T_1+T_2)s +1}$$
+$$G(s) = \frac{K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)}{T_1T_2s^2 + (T_1+T_2)s +1}$$
 
 \noindent Gdzie : \\
 
@@ -294,12 +412,16 @@ $K  = 5.5, T_1 = 7, T_2 = 7, \alpha_1 = 0.19, \alpha_2 = -0.05, \alpha_3 = -0.95
 \\
 
 \section{Wzmocnienie statyczne transmitancji}
-$$K_{stat} = \lim_{s \rightarrow 0} G(s) = -K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)$$
+$$K_{stat} = \lim_{s \rightarrow 0} G(s) = K(\alpha_1+2\alpha_2\overline{u}+3\alpha_3\overline{u}^2+4\alpha_4\overline{u}^3)$$
 \subsection{Wykres wzmocnienia statycznego w zależności od punktu linearyzacji}
-tutaj wykresik piękny
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{stat.png}
+\caption{Wykres wzmocnienia statycznego transmitancji w zależności od punktu linearyzacji}
+\end{figure}
 
-\section{Sprawdzenie wzmocnienia dla modelu ststycznego i dynamicznego}
-Dywagacje 
+\section{Sprawdzenie dla modelu ststycznego i dynamicznego}
+Wzmocnienie statyczne transmitancji odpowiada wzmocnieniu dynamicznego układu zlinearyzowanego, którego odpowiedzi obserwowaliśmy w zadaniu 9. Jak wynika z wykresu wzmocnienia statycznego, dla punktu linearyzacji równego 0.25, K przyjmuje wartość $\approx -2.5$ i taką samą wartość przyjmuje sygnał na wyjściu zlinearyzowanego modelu dla punktu linearyzacji równego 0.25 dla sygnału sterującego będącego skokiem jednostkowym do wartości 0.25. Tak samo jest w przypadku innych, wcześniej badanych, punktów linearyzacji. Potwierdza to zgodność wzmocnienia statycznego transmitancji i wzmocnienia dynamicznego układu zlinearyzowanego. Wzmocnienie dynamiczne układu zlinearyzowanego zostało odczytane z wykresu jako wartość funkcji w stanie ustalonym. Dla niektórych wartości sterowania niemożliwe było odczytanie wzmocnienia układu ze względu na zbyt krótki horyzont czasowy symulacji. 
 
 
 

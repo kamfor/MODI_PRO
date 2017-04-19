@@ -23,7 +23,7 @@ stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
 legend({'Model dynamiczny ciągły', 'Model dynamiczny dyskretny'}, ...
     'Location', 'NorthEast');
 title('Tp = 0.1');
-saveas(h,'tp_01','svg');
+saveas(h,'tp_01','png');
 
 
 Tp = 0.25;
@@ -38,7 +38,7 @@ stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
 legend({'Model dynamiczny ciągły', 'Model dynamiczny dyskretny'}, ...
     'Location', 'NorthEast');
 title('Tp = 0.25');
-saveas(h,'tp_025','svg'); 
+saveas(h,'tp_025','png'); 
 
 
 Tp = 0.5;
@@ -53,7 +53,7 @@ stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
 legend({'Model dynamiczny ciągły', 'Model dynamiczny dyskretny'}, ...
     'Location', 'NorthEast');
 title('Tp = 0.5');
-saveas(h,'tp_05','svg');
+saveas(h,'tp_05','png');
 
 Tp = 1;
 simOutC = sim('dynamiczny_model_ciagly'); 
@@ -67,7 +67,7 @@ stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
 legend({'Model dynamiczny ciągły', 'Model dynamiczny dyskretny'}, ...
     'Location', 'NorthEast');
 title('Tp = 1');
-saveas(h,'tp_1','svg');
+saveas(h,'tp_1','png');
 
 Tp = 2;
 simOutC = sim('dynamiczny_model_ciagly'); 
@@ -81,7 +81,7 @@ stairs(y_d.time,y_d.signals.values,'r','LineWidth', 2);
 legend({'Model dynamiczny ciągły', 'Model dynamiczny dyskretny'}, ...
     'Location', 'NorthEast');
 title('Tp = 2');
-saveas(h,'tp_2','svg');
+saveas(h,'tp_2','png');
 
 %charajterystyka ststyczna 
 u  = -1: .1 : 1;
@@ -93,7 +93,7 @@ grid on
 title('Charakterystyka statyczna modelu');
 xlabel('u')
 ylabel('y')
-saveas(h,'statyczna','svg');
+saveas(h,'statyczna','png');
 
 %charajterystyka ststyczna zlinearyzowana 4 punkty
 us = [-0.25; 0.25; 0.6; 0.8]; 
@@ -111,14 +111,14 @@ for k = 1:4
     xlabel('u')
     name =  ['punkt linearyzacji:' num2str(us(k))];
     title(name);
-    name =  ['6_' num2str(us(k)) '.svg'];
-    saveas(h,name,'svg');   
+    name =  ['6_' num2str(us(k)) '.png'];
+    saveas(h,name,'png');   
     
 end
 
 %symulacje modelu zlinearyzowanego 
 
-Tp = 1; 
+Tp = 0.5; 
 u1 = [1; 0.5; 0.6; 0.25]; 
 for k = 1:4 %linearyzacja
     
@@ -136,22 +136,22 @@ for k = 1:4 %linearyzacja
             'Location', 'NorthEast');
         name =  ['model dynamiczny i zlinearyzowany skok:' num2str(u1(l)) ' punkt linearyzacji:' num2str(us(k))];
         title(name);
-        name =  ['9_' num2str(u1(l)) '_' num2str(us(k)) '.svg'];
-        saveas(h,name,'svg');
+        name =  ['9_' num2str(u1(l)) '_' num2str(us(k)) '.png'];
+        saveas(h,name,'png');
     end
 end
 
 %wzmocnienie statyczne
 u  = -1: .1 : 1;
-y1 = K*(a1*u+a2*u.^2+a3*u.^3+a4*u.^4); 
+y1 = K*(a1+2*a2*u+3*a3*u.^2+4*a4*u.^3); 
 h = figure;
 set(h,'units','points','position',[x0,y0,width,height]); 
 plot(u, y1, 'r','LineWidth', 2)
 grid on
 title('Wzmocnienie Statyczne transmitancji');
 xlabel('us')
-ylabel('y')
-saveas(h,'kststtrasmit','svg');
+ylabel('K_stat')
+saveas(h,'kststtrasmit','png');
 
 
 
