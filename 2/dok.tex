@@ -1,0 +1,94 @@
+% TeX encoding = utf8
+% TeX spellcheck = pl_PL 
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\author{Kamil Foryszewski}
+\title{Modelowanie i identyfkacja - projekt II, zadanie 9}
+\frenchspacing
+
+\newgeometry{tmargin=2cm, bmargin=2cm, lmargin=2cm, rmargin=2cm}
+\pagestyle{empty}
+
+
+\begin{document}
+
+\lstset{language=Matlab,%
+    basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},%
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,
+    numbers=right,%
+    numberstyle={ \color{black}},% size of the numbers
+    numbersep=5pt, % this defines how far the numbers are from the text
+    emph=[1]{for,endfor,endwhile,endfunction,endif,break},emphstyle=[1]\color{blue}, %some words to emphasise
+    emph=[2]{,.}, emphstyle=[2]\color{yellow},%
+}
+
+\maketitle
+\tableofcontents
+
+\section{Identyfikacja modelu statycznego}
+\subsection{Wykres danych ststycznych}
+\subsection{Podział daych statycznych na zbiory}
+\subsubsection{Reprezentacja graficzna zbioru uczącego}
+\subsubsection{reprezentacj graficzna zbioru weryfikującego}
+\subsection{Model liniowy}
+\subsubsection{Wykres charakterystyki modelu liniowego}
+\subsubsection{Błędy zbiorów}
+\subsubsection{Wykres charakterystyki na tle zbiorów danych}
+\subsection{Statyczne modele nielioniwe}
+\subsubsection{Model stopnia drugiego}
+\subsubsection{Model stopnia trzeciego}
+\subsubsection{Model stopnia czwartego}
+\subsubsection{Model stopnia piątego}
+\subsubsection{Porównanie modeli nieliniowych}
+\subsection{Wybór najlepszego modelu}
+
+
+\section{Identyfikacja modelu dynamicznego}
+\subsection{Reprezentacja graficzna danych dynamicznych}
+\subsubsection{Zbiór uczący}
+\subsubsection{Zbiór weryfikujacy}
+\subsection{Dynamiczne modele liniowe}
+\subsubsection{Rzędu pierwszego}
+\subsubsection{Rzędu drugiego}
+\subsubsection{Rzedu trzeciego}
+\subsubsection{Porównianie modeli dynamicznych}
+\subsection{Wybór najlepszego modelu}
+\subsection{Modele dynamiczene wyznaczne metodą najmniejszych kwadratów} 
+\subsubsection{Modele o dynamice pierwszego rzędu}
+\subsubsection{Modele o dynamice drugirgo rzędu}
+\subsubsection{Modele o dynamice trzeciego rzędu}
+\subsubsection{Modele mieszane}
+\subsubsection{Porównanie modeli} %tabelka
+\subsection{Wybór najlepszego modelu nieliniowego}
+
+
+\section{Wyznaczanie statycznego modelu nieliniowego}
+\subsection{Statyczny model nieliniowy}
+\subsection{Reprezentacja graficzna statycznego modelu nieliniowego}
+
+
+
+\end{document}
