@@ -123,7 +123,7 @@ for k=k_pocz:P/2
 end
 
 fprintf(fid,'dane_ucz_2 %d \n',E_ucz);
-fprintf(fid,'dane_wer_2 %d \n',E_wer; 
+fprintf(fid,'dane_wer_2 %d \n',E_wer); 
 
 %% N=3
 M = [o(k_pocz:P/2) u_ucz(k_pocz:P/2) u_ucz(k_pocz:P/2).^2 u_ucz(k_pocz:P/2).^3];
