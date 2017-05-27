@@ -155,11 +155,11 @@ kk = 1:P;
 
 
 %% Modele o różnych stopniach wielomianu
-k_pocz = 5; % chwila, od której rozpoczynamy identyfikacje
+k_pocz = 4; % chwila, od której rozpoczynamy identyfikacje
 
 for s=1:3
     D = s; 
-    for t=1:3
+    for t=1:4
         N = t; 
         ymod_ucz = zeros(P,1);
         ymod_wer = zeros(P,1);
@@ -187,7 +187,7 @@ for s=1:3
         for  i=1:D        
             for j=1:N
                 mb_wer(:,c)= u_wer(k_pocz-i:P-i).^j;
-                mb_wer(:,c+N*2)=y_wer(k_pocz-i:P-i).^j;
+                mb_wer(:,c+(N*2))=y_wer(k_pocz-i:P-i).^j;
                 c=c+1;
             end
         end
@@ -225,29 +225,29 @@ for s=1:3
         ymod_wer = zeros(P,1);
         past_ucz = zeros(D,1);
         past_wer = zeros(D,1);
-        m_wer = zeros();
+
     
         past_ucz = zeros(D,1);
         past_wer = zeros(D,1);
         for k=D+1:P
-        c=1;
-        for i=1:D       
-            for j=1:N
-                m_ucz(1,c)= u_ucz(k-i)^j;
-                m_ucz(1,c+N*2)=past_ucz(i)^j;
-                m_wer(1,c)= u_wer(k-i)^j;
-                m_wer(1,c+N*2)=past_wer(i)^j;
-                c=c+1;
+            c=1;
+            for i=1:D
+                for j=1:N
+                    m_ucz(1,c)= u_ucz(k-i)^j;
+                    m_ucz(1,c+(N*2))=past_ucz(i)^j;
+                    m_wer(1,c)= u_wer(k-i)^j;
+                    m_wer(1,c+(N*2))=past_wer(i)^j;
+                    c=c+1;
+                end
             end
-        end
-        ymod_ucz(k)=m_ucz*w;
-        ymod_wer(k)=m_wer*w;
-        past_ucz = [ymod_ucz(k);past_ucz((1:end-1))];
-        past_wer = [ymod_wer(k);past_wer((1:end-1))];
+            ymod_ucz(k)=m_ucz*w;
+            ymod_wer(k)=m_wer*w;
+            past_ucz = [ymod_ucz(k);past_ucz((1:end-1))];
+            past_wer = [ymod_wer(k);past_wer((1:end-1))];
         end
         
         h = figure;
-        set(h,'units','points','position',[x0,y0,width,height]); 
+        set(h,'units','points','position',[x0,y0,width,height]);
         subplot(2,1,1)
         plot(kk,y_ucz)
         hold on
@@ -268,11 +268,32 @@ for s=1:3
             E_wer = E_wer + (ymod_wer(k)-y_wer(k))^2;  
         end
         
-        w=0; 
         fprintf(fid,'dane_ucz_rek_D=%d_N=%d, %d \n',D,N,E_ucz);
         fprintf(fid,'dane_wer_rek_D=%d_N=%d, %d \n',D,N,E_wer);
     end
 end
+
+%% modele dynamiczne wyrazy mieszane 4 zrobimy druggiego i trzeciego stopnia z pierwszym i drugim rzędem dynamiki 
+        
+%         ymod_ucz = zeros(P,1);
+%         ymod_wer = zeros(P,1);
+%         Y = y_ucz(k_pocz:P);
+%         ymod_ucz(1:k_pocz) = y_ucz(1:k_pocz);
+%         ymod_wer(1:k_pocz) = y_wer(1:k_pocz);
+%         
+% 
+%         % uczenie modelu
+%         c=1; %kolumna
+%         for i=1:D         
+%             for j=1:N
+%                 % ręcznie to wypełnij tak jak ławryn
+%                 M(:,c)= u_ucz(k_pocz-i:P-i).^j;
+%                 M(:,c+N*2)=y_ucz(k_pocz-i:P-i).^j;
+%                 c=c+1;
+%             end
+%         end
+%         M(:,:) = [u_ucz(k_pocz:P) y_ucz(k_pocz:P) 
+%         w=M\Y;
 
 
 fclose(fid);

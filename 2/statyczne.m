@@ -195,7 +195,7 @@ for k=k_pocz:P/2
 end
 
 fprintf(fid,'dane_ucz_4 %d \n',E_ucz);
-fprintf(fid,'dane_wer_4 %d \n',E_wer; 
+fprintf(fid,'dane_wer_4 %d \n',E_wer); 
 
 %% N=5
 M = [o(k_pocz:P/2) u_ucz(k_pocz:P/2) u_ucz(k_pocz:P/2).^2 u_ucz(k_pocz:P/2).^3 u_ucz(k_pocz:P/2).^4 u_ucz(k_pocz:P/2).^5];
