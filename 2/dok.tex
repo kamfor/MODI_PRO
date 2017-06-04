@@ -14,6 +14,7 @@
 \usepackage{enumerate}
 \usepackage{hyperref}
 \usepackage{wrapfig}
+\usepackage{multirow}
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
@@ -49,35 +50,40 @@
 \tableofcontents
 
 \section{Identyfikacja modelu statycznego}
-Skrypt p=w środowisku Matlab wykonujący operacje na dancyh znajduje się w pliku statyczne.m
-\subsection{Wykres danych ststycznych}
+Skrypt w środowisku Matlab wykonujący operacje na danych znajduje się w pliku statyczne.m
+\subsection{Wykres danych statycznych}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{dane_stat.png}
 \caption{Zbiór danych statycznych}
 \label{}
 \end{figure}
-\subsection{Podział daych statycznych na zbiory}
-Dane statyczne zostały podzielone na zbiory: uczący i weryfikujący poprzez podział na parzyste i nieparzyste próbki. Dane uczące składają się z próbek parzystych, natiomiast weryfikujące z próbek nieparzystych. 
+
+\subsection{Podział danych statycznych na zbiory}
+Dane statyczne zostały podzielone na zbiory: uczący i weryfikujący poprzez podział na parzyste i nieparzyste próbki. Dane uczące składają się z próbek parzystych, natomiast weryfikujące z próbek nieparzystych. 
+
 \subsubsection{Reprezentacja graficzna zbioru uczącego}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{dane_stat_ucz.png}
-\caption{Zbiór dancyh uczących }
+\caption{Zbiór danych uczących }
 \label{}
 \end{figure}
-\subsubsection{reprezentacj graficzna zbioru weryfikującego}
+
+\subsubsection{Reprezentacja graficzna zbioru weryfikującego}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{dane_stat_wer.png}
-\caption{Zbiór dancyh weryfikujących }
+\caption{Zbiór danych weryfikujących }
 \label{}
 \end{figure}
+
 \subsection{Model liniowy}
-Ogóna postać modelu lioniowego wygląda następująco: 
+Ogólna postać modelu liniowego wygląda następująco: 
 $$y(u) = a_1u + a_2$$
 Dla danych z zadania została wyznaczona metodą najmniejszych kwadratów i wynosi: 
 $$y(u) =-4.039918564118059u -0.514971764481714  $$
+
 \subsubsection{Wykresy charakterystyk modelu liniowego}
 Poniżej znajduje się reprezentacja graficzna modelu na tle danych uczących i weryfikujących 
 \subsubsection{Wykres charakterystyki na tle zbiorów danych}
@@ -93,21 +99,25 @@ Poniżej znajduje się reprezentacja graficzna modelu na tle danych uczących i 
 \caption{Charakterystyka modelu na tle zbioru danych weryfikujących }
 \label{}
 \end{figure}
-\subsubsection{Błędy zbiorów}
 
+
+\subsubsection{Błędy zbiorów}
 \begin{figure}[H]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-	N & Błąd dla danych uczących & Bąłd dla danych weryfikujących\\
+	N & Błąd dla danych uczących & Błąd dla danych weryfikujących\\
 \hline
 	1 & 9.432614 & 1.028\\
 \hline
 \end{tabular}
 \caption{Błędy modelu liniowego}
 \end{figure}
-\subsection{Statyczne modele nielioniwe}
-Dla danych z zadania model niniowy mało dokładnie odwzorowuje poszczególne próbki, dlatego kolejnym krokiem jest zyznaczenie modeli wyższego stopnia. 
+
+
+\subsection{Statyczne modele nieliniowe}
+Dla danych z zadania model nielinowy mało dokładnie odwzorowuje poszczególne próbki, dlatego kolejnym krokiem jest wyznaczenie modeli wyższego stopnia. 
+
 \subsubsection{Model stopnia drugiego}
 \begin{figure}[H]
 \centering
@@ -115,12 +125,14 @@ Dla danych z zadania model niniowy mało dokładnie odwzorowuje poszczególne pr
 \caption{Model stopnia drugiego dane uczące}
 \label{}
 \end{figure}
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{dane_stat_2_wer.png}
 \caption{Model stopnia drugiego dane weryfikujące}
 \label{}
 \end{figure}
+
 \subsubsection{Model stopnia trzeciego}
 \begin{figure}[H]
 \centering
@@ -128,12 +140,14 @@ Dla danych z zadania model niniowy mało dokładnie odwzorowuje poszczególne pr
 \caption{Model stopnia trzeciego dane uczące}
 \label{}
 \end{figure}
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{dane_stat_3_wer.png}
 \caption{Model stopnia trzeciego dane weryfikujące}
 \label{}
 \end{figure}
+
 \subsubsection{Model stopnia czwartego}
 \begin{figure}[H]
 \centering
@@ -147,6 +161,7 @@ Dla danych z zadania model niniowy mało dokładnie odwzorowuje poszczególne pr
 \caption{Model stopnia czwartego dane weryfikujące}
 \label{}
 \end{figure}
+
 \subsubsection{Model stopnia piątego}
 \begin{figure}[H]
 \centering
@@ -160,26 +175,28 @@ Dla danych z zadania model niniowy mało dokładnie odwzorowuje poszczególne pr
 \caption{Model stopnia piątego dane weryfikujące}
 \label{}
 \end{figure}
+
+
 \subsubsection{Porównanie modeli nieliniowych}
-Jako kryterium porównawcze stosujemy błąd dla danych weryfikujących. Zestawienie błedów modeli dla poszczególnych stopni wielomianu przedstawia tabelka: 
+Jako kryterium porównawcze stosujemy błąd dla danych weryfikujących. Zestawienie błędów modeli dla poszczególnych stopni wielomianu przedstawia tabelka: 
 \begin{figure}[H]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-	N & 12 & 13\\
+	N & Dane uczące & Dane weryfikujące\\
 \hline
-	1 & 9.432614 & 1.028\\
+	1 & 94.32614 & 102.8\\
 \hline
-	2 & 32 & 33\\
+	2 & 61.86064 & 65.37031\\
 \hline
-	3 & 42 & 43\\
+	3 & 3.878911 & 3.414302\\
 \hline
-	4 & 52 & 53\\
+	4 & 0.4441852 & 0.4692886\\
 \hline
-	5 & 62 & 63\\
+	5 & 0.4703329 & 0.4703329\\
 \hline
 \end{tabular}
-\caption{Zestawienie błedów modeli}
+\caption{Zestawienie błędów modeli}
 \end{figure}
 %dane_ucz_1 9.432614e+01 
 %dane_wer_1 1.028000e+02 
@@ -191,25 +208,108 @@ Jako kryterium porównawcze stosujemy błąd dla danych weryfikujących. Zestawi
 %dane_wer_4 4.692886e-01 
 %dane_ucz_5 4.441751e-01 
 %dane_wer_5 4.703329e-01 
+
 \subsection{Wybór najlepszego modelu}
-Najmniejszy błąd dla zbioru weryfikującego występuje w przypadku modelu będącego wielomianem czwartego stopnia, dla stopnia wyższego nastepije pogorszenie modelu. 
+Najmniejszy błąd dla zbioru weryfikującego występuje w przypadku modelu będącego wielomianem czwartego stopnia, dla stopnia wyższego następuje pogorszenie modelu.
 
 
 \section{Identyfikacja modelu dynamicznego}
+W celu badania modeli dynamicznych został napisany skrypt pakietu Matlab znajdujący się w pliku \textbf{dynamiczne.m}. 
+Odpowiada on za poprawne wczytanie danych modelu oraz identyfikację modelu, obliczanie błędów, oraz rysowanie wykresów. 
+
 \subsection{Reprezentacja graficzna danych dynamicznych}
 \subsubsection{Zbiór uczący}
-\subsubsection{Zbiór weryfikujacy}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_ucz.png}
+\caption{Reprezentacja graficzna zbioru uczącego }
+\label{}
+\end{figure}
+
+\subsubsection{Zbiór weryfikujący}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_wer.png}
+\caption{Reprezentacja graficzna zbioru weryfikującego}
+\label{}
+\end{figure}
+
 \subsection{Dynamiczne modele liniowe}
+Na tym etapie badać będziemy model przybliżony wielomianami pierwszego stopnia o różnych rzędach dynamiki, w trybie z rekurencją i bez rekurencji. 
+
 \subsubsection{Rzędu pierwszego}
+Dla pierwszego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1) + a_1y(k-1)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_1.png}
+\caption{Model z pierwszym rzędem dynamiki w trybie bez rekurencji }
+\label{}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1.png}
+\caption{Model z pierwszym rzędem dynamiki w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
 \subsubsection{Rzędu drugiego}
-\subsubsection{Rzedu trzeciego}
-\subsubsection{Porównianie modeli dynamicznych}
+Dla drugiego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2) + a_1y(k-1)+a_2y(k-2)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_2.png}
+\caption{Model z drugim rzędem dynamiki w trybie bez rekurencji }
+\label{}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2.png}
+\caption{Model z drugim rzędem dynamiki w trybie z rekurencją }
+\label{}
+\end{figure}
+
+\subsubsection{Rzędu trzeciego}
+Dla trzeciego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2)+b_3u(k-3) + a_1y(k-1)+a_2y(k-2)+a_3y(k-3)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_3.png}
+\caption{Model z trzecim rzędem dynamiki w trybie bez rekurencji }
+\label{}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3.png}
+\caption{Model z trzecim rzędem dynamiki w trybie z rekurencją }
+\label{}
+\end{figure}
+
+\subsubsection{Porównanie modeli dynamicznych}
+W celu podsumowania błędów modeli o różnych rzędach dynamiki została utworzona tabela: 
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+\centering
+\caption{Błedy dla modeli będących wielomianem stopnia pierwszego o różnych rzędach dynamiki}
+\label{my-label}
+\begin{tabular}{|c|l|l|l|l|}
+\hline
+\multirow{2}{*}{Rząd dynamiki} & \multicolumn{2}{l|}{Zbiór uczący} & \multicolumn{2}{l|}{Zbiór weryfikujący} \\ \cline{2-5} 
+                               & Bez rekurencji   & Z rekurencją   & Bez rekurencji      & Z rekurencją      \\ \hline
+1                              & 8.345317e+00     & 3.337650e+03   & 1.360255e+01        & 5.609383e+03      \\ \hline
+2                              & 3.635287e-01     & 1.035374e+04   & 5.944462e-01        & 1.497991e+04      \\ \hline
+3                              & 9.529738e-02     & 1.001853e+04   & 9.520603e-02        & 1.417891e+04      \\ \hline
+\end{tabular}
+\end{table}
+
+
 \subsection{Wybór najlepszego modelu}
-\subsection{Modele dynamiczene wyznaczne metodą najmniejszych kwadratów} 
+\subsection{Modele dynamiczne wyznaczane metodą najmniejszych kwadratów} 
 \subsubsection{Modele o dynamice pierwszego rzędu}
-\subsubsection{Modele o dynamice drugirgo rzędu}
+\subsubsection{Modele o dynamice drugiego rzędu}
 \subsubsection{Modele o dynamice trzeciego rzędu}
-\subsubsection{Modele mieszane}
 \subsubsection{Porównanie modeli} %tabelka
 \subsection{Wybór najlepszego modelu nieliniowego}
 
