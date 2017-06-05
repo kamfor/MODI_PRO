@@ -1,9 +1,5 @@
 %% inicjalizacja
 clear all; 
-x0=10;
-y0=10;
-width=1000;
-height=800;
 fid = fopen('bledy_dyn','w+'); 
 %% import danych
 ucz = importdata('danedynucz9.txt');
@@ -15,12 +11,10 @@ y_wer = wer(:,2);
 lenght=size(wer);
 P = lenght(1); %liczba próbek
 kk = 1:P;
+k_pocz = 5; % chwila, od której rozpoczynamy identyfikacje
 
 %% Modele o różnych stopniach wielomianu
-
-k_pocz = 4; % chwila, od której rozpoczynamy identyfikacje
-
-for s=3:3
+for s=1:4
     D = s; 
     for t=1:1
         N = t; 
@@ -30,67 +24,62 @@ for s=3:3
         ymod_ucz(1:k_pocz) = y_ucz(1:k_pocz);
         ymod_wer(1:k_pocz) = y_wer(1:k_pocz);
         
-
-
         %uczenie modelu
-        c=1; %kolumna
+        c=1;
         for i=1:D         
             for j=1:N
-                M(:,c)= u_ucz(k_pocz-i:P-i).^j;
-                M(:,c+N*2)=y_ucz(k_pocz-i:P-i).^j;
+                Mu(:,c)= u_ucz(k_pocz-i:P-i).^j;
+                My(:,c)=y_ucz(k_pocz-i:P-i).^j;
                 c=c+1;
             end
         end
+        M = [Mu My]; 
         w=M\Y;
 
-%         %sprawdzenie modelu
-% 
-%         bez rekurencji
-%         c=1;
-%         for  i=1:D        
-%             for j=1:N
-%                 mb_wer(:,c)= u_wer(k_pocz-i:P-i).^j;
-%                 mb_wer(:,c+(N*2))=y_wer(k_pocz-i:P-i).^j;
-%                 c=c+1;
-%             end
-%         end
-%         ymod_ucz(k_pocz:P)=M*w;
-%         ymod_wer(k_pocz:P)=mb_wer*w;
-%                 
-%         h = figure;
-%         set(h,'units','points','position',[x0,y0,width,height]); 
-%         subplot(2,1,1)
-%         plot(kk,y_ucz)
-%         ylim([-10 10])
-%         hold on
-%         plot(kk,ymod_ucz,'g')
-%         ylim([-10 10])
-%         title('y_{ucz}(k)');
-%         subplot(2,1,2);
-%         plot(kk,y_wer)
-%         ylim([-10 10])
-%         hold on
-%         plot(kk,ymod_wer,'g')
-%         ylim([-10 10])
-%         title('y_{wer}(k)');
-%         name =  ['dane_dyn_mod_brek_D_' num2str(D) 'N_' num2str(N) '.png'];
-%         saveas(h,name,'png');
-%         
-%         E_ucz = 0;
-%         E_wer = 0;
-%         for k=k_pocz:P
-%             E_ucz = E_ucz + (ymod_ucz(k)-y_ucz(k))^2; 
-%             E_wer = E_wer + (ymod_wer(k)-y_wer(k))^2;  
-%         end
-% 
-%         fprintf(fid,'dane_ucz_brek_D=%d_N=%d, %d \n',D,N,E_ucz);
-%         fprintf(fid,'dane_wer_brek_D=%d_N=%d, %d \n',D,N,E_wer);
+        %sprawdzenie modelu bez rekurencji
+        c=1;
+        for  i=1:D        
+            for j=1:N
+                mb_wer_u(:,c)=u_wer(k_pocz-i:P-i).^j;
+                mb_wer_y(:,c)=y_wer(k_pocz-i:P-i).^j;
+                c=c+1;
+            end
+        end
+        mb_wer = [mb_wer_u mb_wer_y]; 
+        ymod_ucz(k_pocz:P)=M*w;
+        ymod_wer(k_pocz:P)=mb_wer*w;
+                
+        h = figure;
+        set(h,'units','points','position',[10,10,1000,800]);
+        subplot(2,1,1)
+        plot(kk,ymod_ucz,'g')
+        hold on
+        ylim([-10 10])
+        plot(kk,y_ucz,'r--')
+        ylim([-10 10])
+        legend('y_{mod}','y_{dane}');
+        title('y_{ucz}(k)');
+        subplot(2,1,2);
+        plot(kk,ymod_wer,'g')
+        ylim([-10 10])
+        hold on
+        plot(kk,y_wer,'r--')
+        ylim([-10 10])
+        legend('y_{mod}','y_{dane}');
+        title('y_{wer}(k)');
+        name =  ['dane_dyn_mod_brek_D_' num2str(D) 'N_' num2str(N) '.png'];
+        saveas(h,name,'png');
+        
+        E_ucz = (ymod_ucz-y_ucz)'*(ymod_ucz-y_ucz);
+        E_wer = (ymod_wer-y_wer)'*(ymod_wer-y_wer); 
 
-        % z rekurencja
+        fprintf(fid,'dane_ucz_brek_D=%d_N=%d, %d \n',D,N,E_ucz);
+        fprintf(fid,'dane_wer_brek_D=%d_N=%d, %d \n',D,N,E_wer);
+
+        %sprawdzanie modelu z rekurencja
         
         ymod_ucz = zeros(P-D,1);
-        ymod_wer = zeros(P-D,1); % bez rekurencji
-        
+        ymod_wer = zeros(P-D,1);
         ymod_ucz(1:D) = u_ucz(1:D);
         ymod_wer(1:D) = y_wer(1:D);
 
@@ -100,44 +89,44 @@ for s=3:3
             c=1;
             for i=1:D
                 for j=1:N
-                    m_ucz(1,c)= u_ucz(k-i)^j;
-                    m_ucz(1,c+(N*2))=past_ucz(i)^j;
-                    m_wer(1,c)= u_wer(k-i)^j;
-                    m_wer(1,c+(N*2))=past_wer(i)^j;
+                    m_ucz_u(1,c)= u_ucz(k-i)^j;
+                    m_ucz_y(1,c)=past_ucz(i)^j;
+                    m_wer_u(1,c)= u_wer(k-i)^j;
+                    m_wer_y(1,c)=past_wer(i)^j;
                     c=c+1;
                 end
             end
+            m_ucz = [m_ucz_u m_ucz_y];
+            m_wer = [m_wer_u m_wer_y]; 
             ymod_ucz(k)=m_ucz*w;
             ymod_wer(k)=m_wer*w;
             past_ucz = [ymod_ucz(k);past_ucz((1:numel(past_ucz)-1))];
             past_wer = [ymod_wer(k);past_wer((1:numel(past_wer)-1))];
         end
         
-        h = figure;
-        set(h,'units','points','position',[x0,y0,width,height]);
+                h = figure;
+        set(h,'units','points','position',[10,10,1000,800]);
         subplot(2,1,1)
-        plot(kk,y_ucz)
-        ylim([-10 10])
-        hold on
         plot(kk,ymod_ucz,'g')
+        hold on
         ylim([-10 10])
+        plot(kk,y_ucz,'r--')
+        ylim([-10 10])
+        legend('y_{mod}','y_{dane}');
         title('y_{ucz}(k)');
         subplot(2,1,2);
-        plot(kk,y_wer)
-        ylim([-10 10])
-        hold on
         plot(kk,ymod_wer,'g')
         ylim([-10 10])
+        hold on
+        plot(kk,y_wer,'r--')
+        ylim([-10 10])
+        legend('y_{mod}','y_{dane}');
         title('y_{wer}(k)');
         name =  ['dane_dyn_mod_rek_D_' num2str(D) 'N_' num2str(N) '.png'];
         saveas(h,name,'png');
         
-        E_ucz = 0;
-        E_wer = 0;
-        for k=k_pocz:P
-            E_ucz = E_ucz + (ymod_ucz(k)-y_ucz(k))^2; 
-            E_wer = E_wer + (ymod_wer(k)-y_wer(k))^2;  
-        end
+        E_ucz = (ymod_ucz-y_ucz)'*(ymod_ucz-y_ucz);
+        E_wer = (ymod_wer-y_wer)'*(ymod_wer-y_wer); 
 
         fprintf(fid,'dane_ucz_rek_D=%d_N=%d, %d \n',D,N,E_ucz);
         fprintf(fid,'dane_wer_rek_D=%d_N=%d, %d \n',D,N,E_wer);

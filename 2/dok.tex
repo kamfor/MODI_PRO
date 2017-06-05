@@ -242,13 +242,13 @@ Dla pierwszego rzędu dynamiki wielomian pierwszego stopnia ma postać :
 $$y(k) = b_1u(k-1) + a_1y(k-1)$$
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_1.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_1N_1.png}
 \caption{Model z pierwszym rzędem dynamiki w trybie bez rekurencji }
 \label{}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1N_1.png}
 \caption{Model z pierwszym rzędem dynamiki w trybie z rekurencją }
 \label{}
 \end{figure}
@@ -259,13 +259,13 @@ Dla drugiego rzędu dynamiki wielomian pierwszego stopnia ma postać :
 $$y(k) = b_1u(k-1)+b_2u(k-2) + a_1y(k-1)+a_2y(k-2)$$
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_2.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_2N_1.png}
 \caption{Model z drugim rzędem dynamiki w trybie bez rekurencji }
 \label{}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2N_1.png}
 \caption{Model z drugim rzędem dynamiki w trybie z rekurencją }
 \label{}
 \end{figure}
@@ -275,14 +275,30 @@ Dla trzeciego rzędu dynamiki wielomian pierwszego stopnia ma postać :
 $$y(k) = b_1u(k-1)+b_2u(k-2)+b_3u(k-3) + a_1y(k-1)+a_2y(k-2)+a_3y(k-3)$$
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_3.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_3N_1.png}
 \caption{Model z trzecim rzędem dynamiki w trybie bez rekurencji }
 \label{}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3.png}
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_1.png}
 \caption{Model z trzecim rzędem dynamiki w trybie z rekurencją }
+\label{}
+\end{figure}
+
+\subsubsection{Rzędu czwartego}
+Dla czwartego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2)+b_3u(k-3)+b_4u(k-4) + a_1y(k-1)+a_2y(k-2)+a_3y(k-3)+a_4y(k-4)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_4N_1.png}
+\caption{Model z czwartym rzędem dynamiki w trybie bez rekurencji }
+\label{}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_1.png}
+\caption{Model z czwartym rzędem dynamiki w trybie z rekurencją }
 \label{}
 \end{figure}
 
@@ -298,25 +314,249 @@ W celu podsumowania błędów modeli o różnych rzędach dynamiki została utwo
 \hline
 \multirow{2}{*}{Rząd dynamiki} & \multicolumn{2}{l|}{Zbiór uczący} & \multicolumn{2}{l|}{Zbiór weryfikujący} \\ \cline{2-5} 
                                & Bez rekurencji   & Z rekurencją   & Bez rekurencji      & Z rekurencją      \\ \hline
-1                              & 8.345317e+00     & 3.337650e+03   & 1.360255e+01        & 5.609383e+03      \\ \hline
-2                              & 3.635287e-01     & 1.035374e+04   & 5.944462e-01        & 1.497991e+04      \\ \hline
-3                              & 9.529738e-02     & 1.001853e+04   & 9.520603e-02        & 1.417891e+04      \\ \hline
+1                              & 8.345221e+00      & 3.337657e+03   & 1.360248e+01        & 5.609393e+03       \\ \hline
+2                              & 4.181138e-0     & 2.072431e+03    & 5.744627e-01        & 4.305640e+03       \\ \hline
+3                              & 3.471739e-01    & 1.941761e+03    & 4.167973e-01        &  4.255090e+03      \\ \hline
+4                              & 2.386774e-01     & 1.747979e+03    & 2.604065e-01         & 4.087802e+03      \\ \hline
 \end{tabular}
 \end{table}
 
 
+
 \subsection{Wybór najlepszego modelu}
+Jak wynika z tabeli, najlepszym modelem względem zbioru weryfikującego z rekurencją jest model z czwartym stopniem dynamiki. Jednak różnica wartości błędu dla modelu rzędu czwartego i drugiego jest stosunkowo niewielka, dlatego ze względu na ilość parametrów lepszy okazuje się model z drugim rzędem dynamiki. Z kolei dla modelu bez rekurencji model z dynamiką czwartego rzędu okazuje się być najlepszy ze względu na znacznie mniejszy błąd niż dla rzędów mniejszych.
+
 \subsection{Modele dynamiczne wyznaczane metodą najmniejszych kwadratów} 
+
 \subsubsection{Modele o dynamice pierwszego rzędu}
+Modele z dynamiką pierwszego rzędu i z pierwszym stopniem wielomianu analizowane były w poprzednim podpunkcie. Dla pierwszego rzędu dynamiki rozważymy kolejno stopnie wielomianu od 2 do 4. 
+
+Dla pierwszego rzędu dynamiki wielomian drugiego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2 + a_1y(k-1)+ a_2y(k-1)^2$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_brek_D_1N_2.png}
+\caption{Model z pierwszym rzędem dynamiki i drugim stopniem wielomianu w trybie bez rekurencji }
+\label{}
+\end{figure}
+
+Z uwagi na brak różnic w wykresach modeli bez rekurencji, nie będą one załączane, zostanie jedynie przeanalizowany błąd dla różnych postaci modelu. Dalej załączane będą jedynie wykresy modeli z rekurencją. 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1N_2.png}
+\caption{Model z pierwszym rzędem dynamiki i drugim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla pierwszego rzędu dynamiki wielomian trzeciego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1N_3.png}
+\caption{Model z pierwszym rzędem dynamiki i trzecim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla pierwszego rzędu dynamiki wielomian czwartego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_1N_4.png}
+\caption{Model z pierwszym rzędem dynamiki i czwartym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
+
+
+
 \subsubsection{Modele o dynamice drugiego rzędu}
+Dla drugiego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2) + a_1y(k-1)+a_2y(k-2)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2N_1.png}
+\caption{Model z drugim rzędem dynamiki i pierwszym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla drugiego rzędu dynamiki wielomian drugiego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2 + a_1y(k-1)+ a_2y(k-1)^2 + b_3u(k-2)+b_4u(k-2)^2 + a_3y(k-2)+ a_4y(k-2)^2$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2N_2.png}
+\caption{Model z drugim rzędem dynamiki i drugim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla drugiego rzędu dynamiki wielomian trzeciego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3$$
+$$+b_4u(k-2)+b_5u(k-2)^2+b_6u(k-2)^3 + a_4y(k-2)+ a_5y(k-2)^2+a_6y(k-2)^3$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2N_3.png}
+\caption{Model z drugim rzędem dynamiki i trzecim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+Dla drugiego rzędu dynamiki wielomian czwartego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+$$+ b_5u(k-2)+b_6u(k-2)^2+b_7u(k-2)^3+b_8u(k-2)^4 + a_5y(k-2)+ a_6y(k-2)^2+a_7y(k-2)^3+a_8y(k-2)^4$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_2N_4.png}
+\caption{Model z drugim rzędem dynamiki i czwartym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
+
+
+
 \subsubsection{Modele o dynamice trzeciego rzędu}
-\subsubsection{Porównanie modeli} %tabelka
+Dla trzeciego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2)+b_3u(k-3) + a_1y(k-1)+a_2y(k-2)+a_3y(k-3)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_1.png}
+\caption{Model z trzecim rzędem dynamiki i pierwszym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla trzeciego rzędu dynamiki wielomian drugiego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2 + a_1y(k-1)+ a_2y(k-1)^2$$
+$$+b_3u(k-2)+b_4u(k-2)^2 + a_3y(k-2)+ a_4y(k-2)^2$$
+$$+b_5u(k-3)+b_6u(k-3)^2 + a_5y(k-3)+ a_6y(k-3)^2$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_2.png}
+\caption{Model z trzecim rzędem dynamiki i drugim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla trzeciego rzędu dynamiki wielomian trzeciego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3$$
+$$+b_4u(k-2)+b_5u(k-2)^2+b_6u(k-2)^3 + a_4y(k-2)+ a_5y(k-2)^2+a_6y(k-2)^3$$
+$$+b_7u(k-3)+b_8u(k-3)^2+b_9u(k-3)^3 + a_7y(k-3)+ a_8y(k-3)^2+a_9y(k-3)^3$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_3.png}
+\caption{Model z trzecim rzędem dynamiki i trzecim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+Dla trzeciego rzędu dynamiki wielomian czwartego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+$$+ b_5u(k-2)+b_6u(k-2)^2+b_7u(k-2)^3+b_8u(k-2)^4 + a_5y(k-2)+ a_6y(k-2)^2+a_7y(k-2)^3+a_8y(k-2)^4$$
+$$+ b_9u(k-3)+b_{10}u(k-3)^2+b_{11}u(k-3)^3+b_{12}u(k-3)^4 + a_9y(k-3)+ a_{10}y(k-3)^2+a_{11}y(k-3)^3+a_{12}y(k-3)^4$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_3N_4.png}
+\caption{Model z trzecim rzędem dynamiki i czwartym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
+
+
+
+\subsubsection{Modele o dynamice czwartego rzędu}
+Dla czwartego rzędu dynamiki wielomian pierwszego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-2)+b_3u(k-3)+b_4u(k-4) + a_1y(k-1)+a_2y(k-2)+a_3y(k-3)+a_4y(k-4)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_4N_1.png}
+\caption{Model z czwartym rzędem dynamiki i pierwszym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla czwartego rzędu dynamiki wielomian drugiego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2 + a_1y(k-1)+ a_2y(k-1)^2$$
+$$+b_3u(k-2)+b_4u(k-2)^2 + a_3y(k-2)+ a_4y(k-2)^2$$
+$$+b_5u(k-3)+b_6u(k-3)^2 + a_5y(k-3)+ a_6y(k-3)^2$$
+$$+b_7u(k-4)+b_8u(k-4)^2 + a_7y(k-4)+ a_8y(k-4)^2$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_4N_2.png}
+\caption{Model z czwartym rzędem dynamiki i drugim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla czwartego rzędu dynamiki wielomian trzeciego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3$$
+$$+b_4u(k-2)+b_5u(k-2)^2+b_6u(k-2)^3 + a_4y(k-2)+ a_5y(k-2)^2+a_6y(k-2)^3$$
+$$+b_7u(k-3)+b_8u(k-3)^2+b_9u(k-3)^3 + a_7y(k-3)+ a_8y(k-3)^2+a_9y(k-3)^3$$
+$$+b_{10}u(k-4)+b_{11}u(k-4)^2+b_{12}u(k-4)^3 + a_{10}y(k-4)+ a_{11}y(k-4)^2+a_{12}y(k-4)^3$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_4N_3.png}
+\caption{Model z czwartym rzędem dynamiki i trzecim stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla czwartego rzędu dynamiki wielomian czwartego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+$$+ b_5u(k-2)+b_6u(k-2)^2+b_7u(k-2)^3+b_8u(k-2)^4 + a_5y(k-2)+ a_6y(k-2)^2+a_7y(k-2)^3+a_8y(k-2)^4$$
+$$+ b_9u(k-3)+b_{10}u(k-3)^2+b_{11}u(k-3)^3+b_{12}u(k-3)^4 + a_9y(k-3)+ a_{10}y(k-3)^2+a_{11}y(k-3)^3+a_{12}y(k-3)^4$$
+$$+ b_{13}u(k-4)+b_{14}u(k-4)^2+b_{15}u(k-4)^3+b_{16}u(k-4)^4 + a_{13}y(k-4)+ a_{14}y(k-4)^2+a_{15}y(k-4)^3+a_{16}y(k-4)^4$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_rek_D_4N_4.png}
+\caption{Model z czwartym rzędem dynamiki i czwartym stopniem wielomianu w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
+
+
+
+\subsubsection{Modele o z wyrazami mieszanymi}
+W celu sprawdzenia czy wyrazy mieszane mają wpływ na poprawę dopasowania modelu, dla wielomianu stopnia 4 o rzędzie dynamiki 4 który wykazuje najlepsze rezultaty zostały dodane wyrazy mieszane. Skrypt pakietu Matlab odpowiadający za wygenerowanie modelów z wyrazami mieszanymi znajduje się w pliku \textbf{fixed\_dyn.m}\\
+
+Dla czwartego rzędu dynamiki wielomian czwartego stopnia zawierający wyrazy mieszane drugiego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+$$+ b_5u(k-2)+b_6u(k-2)^2+b_7u(k-2)^3+b_8u(k-2)^4 + a_5y(k-2)+ a_6y(k-2)^2+a_7y(k-2)^3+a_8y(k-2)^4$$
+$$+ b_9u(k-3)+b_{10}u(k-3)^2+b_{11}u(k-3)^3+b_{12}u(k-3)^4 + a_9y(k-3)+ a_{10}y(k-3)^2+a_{11}y(k-3)^3+a_{12}y(k-3)^4$$
+$$+ b_{13}u(k-4)+b_{14}u(k-4)^2+b_{15}u(k-4)^3+b_{16}u(k-4)^4 + a_{13}y(k-4)+ a_{14}y(k-4)^2+a_{15}y(k-4)^3+a_{16}y(k-4)^4$$
+$$+c_1u(k-1)y(k-1)+c_2u(k-2)y(k-2)+c_3u(k-3)y(k-3)+c_4u(k-4)y(k-4)$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_miesz0_rek_D_4N_4.png}
+\caption{Model z czwartym rzędem dynamiki, czwartym stopniem wielomianu i wyrazami mieszanymi stopnia 2 w trybie z rekurencją }
+\label{}
+\end{figure}
+
+Dla czwartego rzędu dynamiki wielomian czwartego stopnia zawierający wyrazy mieszane czwartego stopnia ma postać : 
+$$y(k) = b_1u(k-1)+b_2u(k-1)^2+b_3u(k-1)^3+b_4u(k-1)^4 + a_1y(k-1)+ a_2y(k-1)^2+a_3y(k-1)^3+a_4y(k-1)^4$$
+$$+ b_5u(k-2)+b_6u(k-2)^2+b_7u(k-2)^3+b_8u(k-2)^4 + a_5y(k-2)+ a_6y(k-2)^2+a_7y(k-2)^3+a_8y(k-2)^4$$
+$$+ b_9u(k-3)+b_{10}u(k-3)^2+b_{11}u(k-3)^3+b_{12}u(k-3)^4 + a_9y(k-3)+ a_{10}y(k-3)^2+a_{11}y(k-3)^3+a_{12}y(k-3)^4$$
+$$+ b_{13}u(k-4)+b_{14}u(k-4)^2+b_{15}u(k-4)^3+b_{16}u(k-4)^4 + a_{13}y(k-4)+ a_{14}y(k-4)^2+a_{15}y(k-4)^3+a_{16}y(k-4)^4$$
+$$+c_1u(k-1)y(k-1)+c_2u(k-2)y(k-2)+c_3u(k-3)y(k-3)+c_4u(k-4)y(k-4)$$
+$$+c_5u(k-1)^2y(k-1)^2+6_2u(k-2)^2y(k-2)^2+c_7u(k-3)^2y(k-3)^2+c_8u(k-4)^2y(k-4)^2$$
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{dane_dyn_mod_miesz1_rek_D_4N_4.png}
+\caption{Model z czwartym rzędem dynamiki, czwartym stopniem wielomianu i wyrazami mieszanymi stopnia 4 w trybie z rekurencją }
+\label{}
+\end{figure}
+
+
+
+\subsubsection{Porównanie modeli} % tabelka 
+
 \subsection{Wybór najlepszego modelu nieliniowego}
 
 
 \section{Wyznaczanie statycznego modelu nieliniowego}
 \subsection{Statyczny model nieliniowy}
+
+
 \subsection{Reprezentacja graficzna statycznego modelu nieliniowego}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{model_stat.png}
+\caption{Reprezentacja graficzna statycznego modelu nieliniowego}
+\label{}
+\end{figure}
+
 
 
 
