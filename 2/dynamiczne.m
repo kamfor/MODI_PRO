@@ -22,7 +22,7 @@ k_pocz = 4; % chwila, od której rozpoczynamy identyfikacje
 
 for s=3:3
     D = s; 
-    for t=4:4
+    for t=1:1
         N = t; 
         ymod_ucz = zeros(P,1);
         ymod_wer = zeros(P,1);
@@ -32,7 +32,7 @@ for s=3:3
         
 
 
-        % uczenie modelu
+        %uczenie modelu
         c=1; %kolumna
         for i=1:D         
             for j=1:N
@@ -43,9 +43,9 @@ for s=3:3
         end
         w=M\Y;
 
-%         % sprawdzenie modelu
+%         %sprawdzenie modelu
 % 
-%         % bez rekurencji
+%         bez rekurencji
 %         c=1;
 %         for  i=1:D        
 %             for j=1:N
@@ -89,7 +89,7 @@ for s=3:3
         % z rekurencja
         
         ymod_ucz = zeros(P-D,1);
-        ymod_wer = zeros(P-D,1);
+        ymod_wer = zeros(P-D,1); % bez rekurencji
         
         ymod_ucz(1:D) = u_ucz(1:D);
         ymod_wer(1:D) = y_wer(1:D);
@@ -103,7 +103,7 @@ for s=3:3
                     m_ucz(1,c)= u_ucz(k-i)^j;
                     m_ucz(1,c+(N*2))=past_ucz(i)^j;
                     m_wer(1,c)= u_wer(k-i)^j;
-                    m_wer(1,c+(N*2))=y_wer(i)^j;
+                    m_wer(1,c+(N*2))=past_wer(i)^j;
                     c=c+1;
                 end
             end
